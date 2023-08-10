@@ -1,0 +1,56 @@
+{{!Article lists partial handlebars for home page and profile page}}
+<head>
+  <link rel="stylesheet" href="./css/articles-list.css" />
+</head>
+
+<div class="articles-list-container">
+  {{#if articles}}
+    {{#each articles}}
+        <div class="article-card usersCard author-{{user_id}}">
+          <a href="./article?article_id={{article_id}}{{#if @root.user.user_id}}&user_id={{@root.user.user_id}}{{/if}}">
+          <div class="article-title">
+            <h4 class="title-overflow">{{title}}</h4>
+            <div class="article-content">
+              {{{content}}}
+            </div>
+          </div>
+          </a>
+          <div class="article-main">
+            {{#if article_image}}
+            <div class="article-image">
+              <img src="{{article_image}}" /> 
+            </div>
+            {{else}}
+            <div class="article-preview text-overflow">
+              {{{content}}}
+            </div>  
+            {{/if}}
+            <div class="article-details">
+              <small>{{timestamp}}</small>
+            </div>
+            </div>
+            <div class="author-card">
+              <a href="./profile?user_id={{user_id}}">
+              <img src="./images/avatars/{{avatar}}.png"/>
+              </a>
+              <div class="author-details">
+                <h5>
+                <a href="./profile?user_id={{user_id}}">
+                  {{fname}} {{lname}}
+                </a>
+                </h5>
+              <small>{{username}}</small>
+              {{!Edit article button only available when viewing own profile}}
+              </div>
+              <button class="hidden edit-{{user_id}}">
+                  <a href="./editArticle?article_id={{article_id}}">
+                  <span class="material-icons icon unsubscribed">edit
+                  </span>
+                  </a>
+              </button>
+          </div>
+        </div>
+      </a>
+    {{/each}}
+  {{/if}}
+</div>

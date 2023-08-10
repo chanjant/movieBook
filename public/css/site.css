@@ -1,0 +1,290 @@
+:root {
+  --background: #fbf7f0;
+  --shadow: #f3f3ec;
+  --hover: #555555;
+  --main: #e0e0c5;
+  --light: #efefda;
+  --dark: #a3a354;
+}
+
+* {
+  font-family: Verdana, Geneva, sans-serif;
+  color: #555555;
+  line-height: 23px;
+}
+
+p,
+pre,
+th,
+td,
+li {
+  font-size: 14px;
+}
+
+h1,
+h2,
+h3 {
+  color: #231f20;
+}
+
+h1 {
+  font-size: 23px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 17px;
+}
+
+pre {
+  font-family: Consolas, monospace;
+}
+
+p {
+  text-align: justify;
+}
+
+img {
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.flex-row {
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+/* Main page layout */
+/*****************************************************************/
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.login {
+  border-radius: 15px;
+  background-clip: border-box;
+  margin: 150px auto;
+  width: 350px;
+  padding: 15px;
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 0 25px #cac6c6;
+}
+
+/* Images */
+/*****************************************************************/
+.thumbview-avatar {
+  border-radius: 50%;
+  width: 50px;
+}
+
+/* Cards */
+/*****************************************************************/
+.article-sorting {
+  margin: 10px 20px;
+  text-align: right;
+}
+
+.subscribe-btn:hover {
+  cursor: pointer;
+}
+
+.author-card {
+  padding: 5px;
+  grid-area: f;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.author-card img {
+  width: 50px;
+  border-radius: 50%;
+  display: block;
+}
+
+.author-details {
+  padding: 0 5px;
+  width: 80%;
+}
+
+.title-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  margin: 0px 10px;
+}
+
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+}
+/* Forms */
+/*****************************************************************/
+.input-div {
+  width: 100%;
+  margin: 10px;
+}
+
+.input-div .input {
+  min-width: 95%;
+}
+
+.input {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  margin: 5px;
+  outline: 0;
+  padding: 10px;
+  max-width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: var(--shadow);
+  color: #8a97a0;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+}
+
+.input:focus {
+  background: var(--light);
+}
+
+/* Buttons */
+/*****************************************************************/
+
+.input-btn {
+  background: var(--main);
+  border: none;
+  padding: 8px 10px 8px 10px;
+  border-radius: 5px;
+  min-width: 100px;
+}
+
+.input-btn:hover {
+  background: var(--dark);
+}
+
+.btn {
+  font-size: 12px !important;
+  min-width: 100px;
+  background-color: #fff;
+  border: 0 solid #e2e8f0;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  color: #0d172a;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5rem 1rem !important;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  text-decoration-thickness: auto;
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-right: 10px;
+}
+
+.normal-btn:hover {
+  background-color: var(--dark);
+  color: #fff;
+}
+
+.alert-btn:hover {
+  background-color: red !important;
+  color: #fff;
+}
+
+.submit-button {
+  border: none;
+  border-radius: 10px;
+  background-color: var(--main);
+}
+
+.submit-button:hover {
+  background-color: var(--dark);
+  cursor: pointer;
+}
+
+.alert-icon {
+  width: 15px;
+}
+
+.cancel-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #8a97a0;
+}
+
+.cancel-btn:hover {
+  color: black;
+  background: var(--dark);
+}
+/* Input radio */
+/*****************************************************************/
+/* HIDE RADIO */
+[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+/* IMAGE STYLES */
+[type="radio"] + img {
+  cursor: pointer;
+  width: 100px;
+  opacity: 0.5;
+}
+
+/* CHECKED STYLES */
+[type="radio"]:checked + img {
+  width: 110px;
+  opacity: 1;
+}
+
+/* Images */
+/*****************************************************************/
+#avatar {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+/* Responsive design */
+/*****************************************************************/
+@media (min-width: 768px) {
+  .btn {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+  }
+}

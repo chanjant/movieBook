@@ -1,0 +1,113 @@
+/* Divs */
+/*****************************************************************/
+.profile-container {
+  display: flex;
+  flex-direction: column;
+}
+.personal-details {
+  display: grid;
+  grid-template-columns: 40vh auto;
+  grid-template-rows: auto;
+  grid-template-areas: "l r";
+  margin-bottom: 30px;
+}
+
+.personal-left {
+  position: relative;
+  grid-area: l;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.personal-right {
+  grid-area: r;
+}
+
+.personal-card {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.personal-label {
+  display: flex;
+  flex-direction: row;
+}
+
+.secured {
+  margin-bottom: 10px;
+}
+
+.edit-btn {
+  font-size: 16px;
+  vertical-align: sub;
+  margin-left: 5px;
+}
+
+.edit-btn:hover {
+  color: var(--hover);
+  cursor: pointer;
+}
+
+#edit-avatar-btn {
+  font-size: 24px;
+  background-color: var(--background);
+  border-radius: 50%;
+  padding: 5px;
+  position: absolute;
+  top: 165px;
+  right: 80px;
+  z-index: 3;
+}
+
+#edit-avatar-btn:hover {
+  background-color: var(--shadow);
+}
+
+/* Images */
+/*****************************************************************/
+#fullview-avatar {
+  width: 200px;
+  border-radius: 50%;
+}
+
+/* Forms */
+/*****************************************************************/
+#change-avatar-form {
+  position: absolute;
+  z-index: 3;
+  top: 70%;
+  left: 68%;
+  background-color: var(--background);
+  border-radius: 10px;
+}
+
+#change-avatar-form form {
+  display: block;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 10px;
+  padding: 20px;
+}
+
+.popup-form {
+  display: flex;
+  flex-direction: row;
+}
+
+#change-description-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#change-description-form .input {
+  width: 700px;
+  height: 100px;
+}
+
+#change-description-form .input-btn {
+  margin-top: 10px;
+}

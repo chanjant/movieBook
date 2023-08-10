@@ -1,0 +1,162 @@
+<head>
+  <script src="./scripts/register.js"></script>
+</head>
+
+<div class="register">
+  <h1>New Account</h1>
+  <form action="./newAccount" method="POST">
+    <div id="avatar">
+      <label>
+        <input type="radio" name="avatar" value="avatar-1" />
+        <img
+          class="thumbview-avatar"
+          src="./images/avatars/avatar-1.png"
+          alt="avatar-1"
+        />
+      </label>
+      <label>
+        <input type="radio" name="avatar" value="avatar-2" />
+        <img
+          class="thumbview-avatar"
+          src="./images/avatars/avatar-2.png"
+          alt="avatar-2"
+        />
+      </label>
+      <label>
+        <input type="radio" name="avatar" value="avatar-3" />
+        <img
+          class="thumbview-avatar"
+          src="./images/avatars/avatar-3.png"
+          alt="avatar-3"
+        />
+      </label>
+      <label>
+        <input type="radio" name="avatar" value="avatar-4" />
+        <img
+          class="thumbview-avatar"
+          src="./images/avatars/avatar-4.png"
+          alt="avatar-4"
+        />
+      </label>
+      <label>
+        <input type="radio" name="avatar" value="avatar-5" />
+        <img
+          class="thumbview-avatar"
+          src="./images/avatars/avatar-5.png"
+          alt="avatar-5"
+        />
+      </label>
+      <label>
+        <input type="radio" name="avatar" value="avatar-6" />
+        <img
+          class="thumbview-avatar"
+          src="./images/avatars/avatar-6.png"
+          alt="avatar-6"
+        />
+      </label>
+      <label>
+        <input type="radio" name="avatar" value="avatar-7" />
+        <img
+          class="thumbview-avatar"
+          src="./images/avatars/avatar-7.png"
+          alt="avatar-7"
+        />
+      </label>
+      <label>
+        <input type="radio" name="avatar" value="avatar-8" checked />
+        <img
+          class="thumbview-avatar"
+          src="./images/avatars/avatar-8.png"
+          alt="avatar-8"
+        />
+      </label>
+    </div>
+
+    <div class="input-div">
+      <input
+        class="input"
+        type="text"
+        name="username"
+        id="txtUsername"
+        placeholder="Username"
+        maxlength="64"
+        required
+      />
+      <img src="" id="usernameIcon" class="alert-icon" />
+    </div>
+
+    <div class="input-div">
+      <input
+        type="password"
+        name="password"
+        id="txtPassword"
+        class="input"
+        placeholder="Password"
+        required
+      />
+    </div>
+    <div class="input-div">
+      <input
+        class="input"
+        type="password"
+        name="confirmPassword"
+        id="txtConfirmPassword"
+        placeholder="Confirm password"
+        required
+      />
+      <img src="" id="passwordIcon" class="alert-icon" />
+    </div>
+
+    <div class="input-div">
+      <input
+        class="input"
+        type="text"
+        name="fname"
+        id="txtfname"
+        placeholder="First name"
+        maxlength="64"
+        required
+      />
+    </div>
+
+    <div class="input-div">
+      <input
+        class="input"
+        type="text"
+        name="lname"
+        id="txtlname"
+        placeholder="Last name"
+        maxlength="64"
+        required
+      />
+    </div>
+
+    <div class="input-div">
+      <input
+        class="input"
+        placeholder="Birthday"
+        type="date"
+        name="birthday"
+        id="dateBirthday"
+        required
+      />
+    </div>
+
+    <div class="input-div">
+      <textarea
+        name="description"
+        id="txtDescription"
+        class="input"
+        placeholder="Description"
+        maxlength="200"
+        required
+      ></textarea>
+    </div>
+
+    <div class="input-div">
+      <button type="submit" class="input-btn normal-btn verifyBtn">Create
+        account</button>
+    </div>
+  </form>
+
+</div>

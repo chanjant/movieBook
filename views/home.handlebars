@@ -1,0 +1,44 @@
+<head>
+  <link rel="stylesheet" href="./css/homepage.css" />
+</head>
+<div class="homepage">
+  <div class="article-sorting">
+      <select class="input" name="order" onchange="orderByList(this.value)">
+        <optgroup label="Sort by:">
+        <option value="title" 
+        {{#if titleOrder}}selected
+        {{/if}}>Title
+        </option>
+        <option value="username" 
+        {{#if usernameOrder}}selected
+        {{/if}}>Username
+        </option>
+        <option value="date" 
+        {{#if dateOrder}}selected
+        {{/if}}>Date
+        </option>
+        </optgroup>
+      </select>
+  </div>
+  <div>
+    {{> articles-list}}
+  </div>
+</div>
+
+<script>
+  /**
+  * Sort articles without refreshing browser
+  */
+async function  orderByList(query){
+      let url=location.origin+"?query="+query;
+      var xhr = new XMLHttpRequest();
+      xhr.open( 'GET', url , true );
+      xhr.onreadystatechange = function () {
+          if (xhr.readyState !== 4 || xhr.status !== 200) {
+              return;
+          }
+          document.documentElement.innerHTML=xhr.responseText;
+      };
+      xhr.send();
+  }
+</script>

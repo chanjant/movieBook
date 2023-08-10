@@ -1,0 +1,306 @@
+<head>
+  <link rel="stylesheet" href="./css/profile.css" />
+  {{#if authenticated}}
+    <script src="./scripts/profile.js"></script>
+    <script src="./scripts/register.js"></script>
+  {{/if}}
+  <script src="./scripts/buttons.js"></script>
+</head>
+
+<div class="profile-container">
+  <div class="personal-details">
+    <div class="personal-left">
+      <div class="personal-avatar">
+        <img id="fullview-avatar" src="./images/avatars/{{profile.avatar}}.png" 
+        />
+        {{!Users are only allowed to edit if this is their own profile page}}
+        {{#if authenticated}}
+          <div>
+            <div>
+              <span
+                id="edit-avatar-btn"
+                class="material-icons edit-btn hidden">edit
+              </span>
+            </div>
+            {{!Change avatar form}}
+            <div class="hidden" id="change-avatar-form">
+              <form
+                action="./changeAvatar?user_id={{profile.user_id}}"
+                method="POST">
+                <label>
+                  <input type="radio" name="avatar" value="avatar-1" />
+                  <img
+                    class="thumbview-avatar"
+                    src="./images/avatars/avatar-1.png"
+                    alt="avatar-1"
+                  />
+                </label>
+                <label>
+                  <input type="radio" name="avatar" value="avatar-2" />
+                  <img
+                    class="thumbview-avatar"
+                    src="./images/avatars/avatar-2.png"
+                    alt="avatar-2"
+                  />
+                </label>
+                <label>
+                  <input type="radio" name="avatar" value="avatar-3" />
+                  <img
+                    class="thumbview-avatar"
+                    src="./images/avatars/avatar-3.png"
+                    alt="avatar-3"
+                  />
+                </label>
+                <label>
+                  <input type="radio" name="avatar" value="avatar-4" />
+                  <img
+                    class="thumbview-avatar"
+                    src="./images/avatars/avatar-4.png"
+                    alt="avatar-4"
+                  />
+                </label>
+                <label>
+                  <input type="radio" name="avatar" value="avatar-5" />
+                  <img
+                    class="thumbview-avatar"
+                    src="./images/avatars/avatar-5.png"
+                    alt="avatar-5"
+                  />
+                </label>
+                <label>
+                  <input type="radio" name="avatar" value="avatar-6" />
+                  <img
+                    class="thumbview-avatar"
+                    src="./images/avatars/avatar-6.png"
+                    alt="avatar-6"
+                  />
+                </label>
+                <label>
+                  <input type="radio" name="avatar" value="avatar-7" />
+                  <img
+                    class="thumbview-avatar"
+                    src="./images/avatars/avatar-7.png"
+                    alt="avatar-7"
+                  />
+                </label>
+                <label>
+                  <input type="radio" name="avatar" value="avatar-8" />
+                  <img
+                    class="thumbview-avatar"
+                    src="./images/avatars/avatar-8.png"
+                    alt="avatar-8"
+                  />
+                </label>
+                <button class="btn" type="submit">Save</button>
+                <button class="btn cancel-btn" type="button">Cancel</button>
+              </form>
+            </div>
+          </div>
+        {{/if}}
+      </div>
+      {{!Allow edit profile if it's user's profile page}}
+      {{#if authenticated}}
+        <button class="btn normal-btn" id="edit-profile-btn">Edit profile
+        </button>
+      {{/if}}
+    </div>
+    <div class="personal-right">
+      <div class="personal-card">
+        <div class="personal-label">
+          <h1>{{profile.fname}} {{profile.lname}}</h1>
+          {{#if authenticated}}
+            <span class="material-icons edit-btn hidden">edit</span>
+          {{/if}}
+          {{!When viewing other ppl's profile, there will be an subscribe button}}
+          <button class="hidden  subscribe-btn subscribe-{{profile.user_id}} ">
+            <a href="./subscribe?author_id={{profile.user_id}}">
+            <span class="material-icons icon unsubscribed">remove</span>
+            <span class="material-icons icon subscribe">add</span>
+            </a>
+          </button>
+        </div>
+        {{#if authenticated}}
+          <div class="popup-form hidden">
+            <form
+              action="./changeName?user_id={{profile.user_id}}"
+              method="POST">
+              <input
+                class="input"
+                type="text"
+                name="fname"
+                id="textFname"
+                placeholder="First name"
+                maxlength="64"
+                required
+              />
+              <input
+                class="input"
+                type="text"
+                name="lname"
+                id="textLname"
+                placeholder="Last name"
+                maxlength="64"
+                required
+              />
+              <button class="input-btn" type="submit">Save</button>
+              <button class="input-btn cancel-btn" type="button">Cancel
+              </button>
+            </form>
+          </div>
+        {{/if}}
+      </div>
+      <div class="personal-card">
+        <div class="personal-label">
+          <p><strong>Username: </strong><span>{{profile.username}}</span></p>
+          {{#if authenticated}}
+          <span class="material-icons edit-btn hidden">edit</span>
+          {{/if}}
+        </div>
+        {{#if authenticated}}
+          <div class="popup-form hidden">
+            <form
+              action="./changeUsername?user_id={{profile.user_id}}"
+              method="POST">
+              <input
+                class="input"
+                type="text"
+                name="username"
+                id="txtUsername"
+                placeholder="New username"
+                maxlength="64"
+                required
+              />
+              <img src="" id="usernameIcon" class="alert-icon" />
+              <button type="submit" class="input-btn verifyBtn">Save</button>
+              <button class="input-btn cancel-btn" type="button">Cancel</button>
+            </form>
+          </div>
+        {{/if}}
+      </div>
+      <div class="personal-card">
+        <div class="personal-label">
+          <p><strong>Birthday: </strong><span>{{profile.birthday}}</span></p>
+          {{#if authenticated}}
+            <span class="material-icons edit-btn hidden">edit</span>
+          {{/if}}
+        </div>
+        {{#if authenticated}}
+          <div class="popup-form hidden">
+            <form
+              action="./changeBirthday?user_id={{profile.user_id}}"
+              method="POST"
+            >
+              <input
+                class="input"
+                type="date"
+                name="birthday"
+                id="dateBirthday"
+                required
+              />
+              <button type="submit" class="input-btn">Save</button>
+              <button class="input-btn cancel-btn" type="button">Cancel</button>
+            </form>
+          </div>
+        {{/if}}
+      </div>
+      <div class="personal-card">
+        <div class="personal-label">
+          <p><strong>Description: </strong><span
+            >{{profile.description}}</span></p>
+          {{#if authenticated}}
+            <span class="material-icons edit-btn hidden">edit</span>
+          {{/if}}
+        </div>
+        {{#if authenticated}}
+          <div class="popup-form hidden">
+            <form
+              action="./changeDescription?user_id={{profile.user_id}}"
+              method="POST"
+              id="change-description-form"
+            >
+              <textarea
+                class="input"
+                name="description"
+                id="txtDescription"
+                maxlength="200"
+              >{{profile.description}}</textarea>
+              <div>
+                <button class="input-btn" type="submit">Save</button>
+                <button
+                  class="input-btn cancel-btn"
+                  type="button"
+                >Cancel</button>
+              </div>
+            </form>
+          </div>
+        {{/if}}
+        </div>
+        <div class="personal-card">
+          <div class="personal-label" id="fansList">
+            <p><strong>Following: </strong><span>{{following.count}}</span></p>
+          </div>
+        </div>
+        <div class="personal-card">
+          <div class="personal-label" id="fansList">
+          <p><strong>Followers: </strong><span>{{followers.count}}</span></p>
+          </div>
+        </div>
+      <div class="personal-card">
+        <div class="personal-label secured hidden">
+          {{#if authenticated}}
+            <button
+              class="btn normal-btn"
+              type="button"
+              id="change-pwd-btn"
+            >Change password</button>
+            <button
+              class="btn alert-btn"
+              type="button"
+              id="delete-acc-btn"
+            >Delete account</button>
+          {{/if}}
+        </div>
+        {{#if authenticated}}
+          <div id="change-pwd-form" class="popup-form hidden">
+            <form
+              action="./changePwd?user_id={{profile.user_id}}"
+              method="POST"
+            >
+              <input
+                class="input"
+                type="password"
+                name="password"
+                id="txtPassword"
+                placeholder="New password"
+                required
+              />
+              <input
+                class="input"
+                type="password"
+                name="confirmPassword"
+                id="txtConfirmPassword"
+                placeholder="Confirm password"
+                required
+              />
+              <img src="" id="passwordIcon" class="alert-icon" />
+              <button class="input-btn" type="submit">Save</button>
+              <button class="input-btn cancel-btn" type="button">Cancel</button>
+            </form>
+          </div>
+          <div id="delete-acc-form" class="popup-form hidden">
+            <form
+              action="./deleteAccount?user_id={{profile.user_id}}"
+              method="POST"
+            >
+              <button class="input-btn alert-btn" type="submit">Confirm delete</button>
+              <button class="input-btn cancel-btn" type="button">Cancel</button>
+            </form>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  <div class="profile-articles">
+    {{> articles-list}}
+  </div>
+</div>

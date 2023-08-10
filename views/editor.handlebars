@@ -1,0 +1,59 @@
+<div class="edit-container">
+  <!-- check enctype -->
+  <form id={{editor.id}} action={{editor.url}} method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <div class="input-div">
+        <input type="text" name="title" class="input form-control" 
+          {{#if editing}}value="{{editing.title}}" 
+          {{else }} placeholder="Title" 
+          {{/if}} 
+          maxlength="64"
+          required>
+      </div>
+      <div class="input-div">
+        {{!Will show selected article text if users are editing}}
+        {{!If users are publish, will show "Content" instead}}
+        <textarea class="input" id="tinymce-app" name="content" type="text" 
+          {{#if editing}}{{else}} placeholder = "Content"{{/if}} required >
+          {{#if editing}}
+          {{editing.content}}
+          {{/if}}
+        </textarea>
+        <script type="application/javascript" src="/tinymce/tinymce.min.js">
+        </script>
+        <script type="application/javascript" src="/scripts/editor.js"></script>
+      </div>
+      {{#if editing.article_image}}
+      {{else}}
+      {{!When editing, this will not be shown unless there's is no article image or image has been deleted}}
+        <div class="form-image">
+          <label for="inpFile">Upload an image here!</label>
+          <input id="inpFile" type="file" name="imageFile" 
+          accept=".png,.jpg,.jpeg,.bmp,.gif"/>
+        </div>
+      {{/if}}
+    </div>
+  </form>
+  {{#if editing.article_image}}
+  <form action="./deleteImage?article_id={{editing.article_id}}" method="POST">
+    <div>
+      <img width="100px" src="{{editing.article_image}}" />
+      <button class="input-btn cancel-btn" type="submit">Delete image</button>
+    </div>
+  </form>
+  {{/if}}
+  <div class="flex-row">
+    <button class="input-btn normal-btn" type="submit" form={{editor.id}}>
+      {{#if editing}}
+      Save
+      {{else}}
+      Publish
+      {{/if}}
+    </button>
+    {{#if editing}}
+    <form action="./deleteArticle?article_id={{editing.article_id}}" method="POST">
+      <button class="input-btn alert-btn" type="submit">Delete article</button>
+    </form>
+    {{/if}}
+  </div>
+</div>

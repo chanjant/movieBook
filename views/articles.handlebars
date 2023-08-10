@@ -1,0 +1,124 @@
+<head>
+  <script src="./scripts/article-script.js"></script>
+  <link rel="stylesheet" href="./css/article.css" />
+</head>
+<div class="n n-article">
+  <div>
+    <header class="n-article-user">
+      <img src="./images/avatars/{{data.avatar}}.png" />
+      <div>
+        <a href="./profile?user_id={{data.user_id}}"><h3
+          >{{data.username}}</h3></a>
+        <p>{{data.timestamp}}</p>
+      </div>
+    </header>
+
+    <div class="n-article-main">
+      <h1>{{data.title}}</h1>
+      <div><p>{{{data.content}}}</p></div>
+      <img src="{{data.article_image}}" />
+    </div>
+
+    <div class="n-article-total">
+      <span id="n-article-like" is-like="{{isLike}}">Like:
+        <em>{{likeTotal}}</em></span>
+      <span id="n-article-commentBtn">comment: {{commentTotal}}</span>
+    </div>
+
+    <h3
+      class="n-article-title n-article-commentBox"
+      style="display:none"
+    >Comments</h3>
+
+    {{#if user_id}}
+      <div
+        class="n-article-commentInput n-article-commentBox"
+        style="display:none"
+      >
+        <textarea id="comment_content" placeholder="input..."></textarea>
+        <button onclick="ncreateComment()">submit</button>
+      </div>
+    {{/if}}
+
+    <ul class="n-article-comment n-article-commentBox" style="display:none">
+
+      {{#each commentList}}
+        <li class="n-article-comment-item">
+          <header>
+            <img src="./images/avatars/{{this.avatar}}.png" />
+            <div>
+              <h3>{{this.username}}</h3>
+              <p>{{this.comment_timeStamp}}</p>
+            </div>
+            {{#if user_id}}
+              <em
+                onclick="replyComment({{this.comment_id}}, '{{this.username}}')"
+              >reply</em>
+            {{/if}}
+
+            {{#if this.isDel}}
+              <button onclick="delComment({{this.comment_id}})">Del</button>
+            {{/if}}
+          </header>
+          <div>{{this.comment_content}}</div>
+
+          {{#if this.isRenderChild}}
+            <ul class="n-article-comment">
+              {{#each this.child}}
+                <li class="n-article-comment-item">
+                  <header>
+                    <img src="./images/avatars/{{this.avatar}}.png" />
+                    <div>
+                      <h3>{{this.username}}</h3>
+                      <p>{{this.comment_timeStamp}}</p>
+                    </div>
+                    {{#if user_id}}
+                      <em
+                        onclick="replyComment({{this.comment_id}}, '{{this.username}}')"
+                      >reply</em>
+                    {{/if}}
+                    {{#if this.isDel}}
+                      <button
+                        onclick="delComment({{this.comment_id}})"
+                      >Del</button>
+                    {{/if}}
+                  </header>
+                  <div>{{this.comment_content}}</div>
+
+                  {{#if this.isRenderChild}}
+                    <ul class="n-article-comment">
+                      {{#each this.child}}
+                        <li class="n-article-comment-item">
+                          <header>
+                            <img src="./images/avatars/{{this.avatar}}.png" />
+                            <div>
+                              <h3>{{this.username}}</h3>
+                              <p>{{this.comment_timeStamp}}</p>
+                            </div>
+                            {{#if this.isDel}}
+                              <button
+                                onclick="delComment({{this.comment_id}})"
+                              >Del</button>
+                            {{/if}}
+                          </header>
+                          <div>{{this.comment_content}}</div>
+
+                        </li>
+                      {{/each}}
+                    </ul>
+                  {{/if}}
+
+                </li>
+              {{/each}}
+            </ul>
+          {{/if}}
+        </li>
+      {{/each}}
+    </ul>
+
+    {{#if commentNoData}}
+      <div class="n-article-comment-noData n-article-commentBox">No Data</div>
+    {{/if}}
+    <footer class="n-article-footer">My Baseline</footer>
+  </div>
+</div>

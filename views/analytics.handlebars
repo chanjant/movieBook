@@ -1,0 +1,62 @@
+<head>
+  <link rel="stylesheet" href="./css/analytics.css" />
+  <script type="application/javascript" src="/scripts/analytics.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-adapter-moment/1.0.0/chartjs-adapter-moment.min.js"
+  ></script>
+
+</head>
+
+<div class="analytics">
+  <div class="analytics-pic">
+    <img src="./images/avatars/{{user.avatar}}.png" />
+    <h2>{{user.fname}} {{user.lname}}</h2>
+    <p>@{{user.username}}</p>
+  </div>
+  <div class="analytics-details">
+    <div class="keyMetrics">
+      <h1>Key Metrics</h1>
+      <br />
+      <div class="key">
+        <h4> Subscribers:{{numSubscribers}}</h4>
+        <h4> Comments:{{numComments}}</h4>
+        <h4> Likes:{{numLikes}}</h4>
+      </div>
+    </div>
+    <br />
+    <h1>Popularity</h1>
+    <br />
+    <div class="row">
+      {{#if popularity}}
+        {{#each popularity}}
+          <div class="card column">
+            <div class="item">
+              <img src="{{article_image}}" />
+              <span>
+                <h2><b>Ranking</b>: {{ranking}} 🎉</h2>
+                <br />
+                <h4>{{title}}</h4>
+                <p><b>Popularity</b>: {{Popularity}}</p>
+                <p><b>Total comments</b>: {{Comment_number}}</p>
+                <p><b>Total likes</b>: {{Like_number}}</p>
+                <p><b>Publish time</b>: {{timestamp}}</p>
+              </span>
+            </div>
+          </div>
+
+        {{/each}}
+      {{else}}
+        <p>No article</p>
+      {{/if}}
+    </div>
+  </div>
+  <br />
+  <h1 class="commentTitle">Comment Trend</h1>
+  <div class="commentTrend">
+    <br />
+    <canvas id="chart"></canvas>
+  </div>
+</div>

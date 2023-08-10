@@ -1,0 +1,68 @@
+.analytics-pic {
+  grid-area: p;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.analytics-pic img {
+  width: 200px;
+  border-radius: 50%;
+}
+
+.key {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: left;
+  background-color: var(--light);
+}
+
+.commentTrend {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: left;
+  background-color: var(--light);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: left;
+  background-color: var(--light);
+}
+
+.column {
+  float: left;
+  width: 100%;
+  padding: 10px 10px;
+}
+
+.row {
+  margin: 0 -5px;
+}
+
+.item:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+  width: 20%;
+  padding: 10px;
+}
+
+.item h2 {
+  color: dimgray;
+}
+
+.commentTitle {
+  padding: 20px 0 20px 0;
+}
+
+#chart {
+  width: 70%;
+  margin: auto;
+}

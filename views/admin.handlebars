@@ -1,0 +1,54 @@
+<head>
+  <link rel="stylesheet" href="./css/articles-list.css" />
+</head>
+
+<div class="admin-container">
+  <div class="section">
+    <h3>Your subscribers</h3>
+    {{#if subscribers}}
+      {{#each subscribers}}
+        <div class="author-card usersCard author-{{subscriber_id}}">
+          <a href="./profile?user_id={{subscriber_id}}">
+            <img src="./images/avatars/{{avatar}}.png" />
+          </a>
+          <div class="author-details">
+            <h5>
+              <a href="./profile?user_id={{subscriber_id}}">
+                {{fname}}
+                {{lname}}
+              </a>
+            </h5>
+            <small>{{username}}</small>
+          </div>
+          <a href="./removeSubscriber?subscriber_id={{subscriber_id}}"><button
+              class="input-btn cancel-btn"
+            >Remove</button></a>
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+  <div class="section">
+    <h3>Subscribing</h3>
+    {{#if subscribing}}
+      {{#each subscribing}}
+        <div class="author-card usersCard author-{{author_id}}">
+          <a href="./profile?user_id={{author_id}}">
+            <img src="./images/avatars/{{avatar}}.png" />
+          </a>
+          <div class="author-details">
+            <h5>
+              <a href="./profile?user_id={{author_id}}">
+                {{fname}}
+                {{lname}}
+              </a>
+            </h5>
+            <small>{{username}}</small>
+          </div>
+          <a href="./subscribe?author_id={{author_id}}"><button
+              class="input-btn cancel-btn"
+            >unsubscribed</button></a>
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+</div>

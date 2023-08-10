@@ -1,0 +1,30 @@
+<div class="login">
+  <h1>Login</h1>
+  <form action="./api/login" method="POST">
+    <div class="input-div">
+      <input
+        class="input"
+        type="text"
+        name="username"
+        id="txtUsername"
+        placeholder="Username"
+        maxlength="64"
+        required
+      />
+    </div>
+    <div class="input-div">
+      <input
+        class="input"
+        type="password"
+        name="password"
+        id="txtPassword"
+        placeholder="Password"
+        required
+      />
+    </div>
+    <div class="input-div">
+      <button class="input-btn" type="submit">Log in</button>
+      <p>Don't have an account? <a href="./register">Create one here.</a></p>
+    </div>
+  </form>
+</div>

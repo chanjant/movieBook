@@ -1,0 +1,9 @@
+.homepage {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-sorting {
+  margin-top: 10px;
+  float: right;
+}
